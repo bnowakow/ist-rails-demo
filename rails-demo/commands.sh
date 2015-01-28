@@ -34,3 +34,5 @@ add validators to user
 rails g bootstrap:install
 rails g bootstrap:layout application fixed
 rails g bootstrap:themed Users -f
+
+rails g scaffold Order id:string user:references

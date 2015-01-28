@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :orders
+
   resources :users
   # resources :users, :defaults => { :format => 'json' }
 
