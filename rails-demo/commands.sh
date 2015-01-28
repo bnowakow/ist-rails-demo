@@ -14,12 +14,12 @@ https://rubygems.org/gems/rails
 
 gem install --version '4.2.0' railties
 rails _4.2.0_ new rails-demo
-
-bundle install
 rails server
+bundle install
+
 
 rails generate scaffold User name:string email:string
-rails server
+rails server without rake db:migrate
 rake db:migrate
 db/schema.rb
 
@@ -28,3 +28,9 @@ open http://localhost:3000/users
 open http://localhost:3000/users/1.html
 open http://localhost:3000/users/1.json
 change default format to json
+
+add validators to user
+
+rails g bootstrap:install
+rails g bootstrap:layout application fixed
+rails g bootstrap:themed Users -f
