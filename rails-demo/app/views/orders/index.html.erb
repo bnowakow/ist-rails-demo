@@ -8,6 +8,7 @@
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:number) %></th>
       <th><%= model_class.human_attribute_name(:user_id) %></th>
+      <th><%= model_class.human_attribute_name(:tracking_number) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
@@ -22,6 +23,7 @@
               <%= order.user.name %>
           <% end %>
         </td>
+        <td><%= order.tracking_number %></td>
         <td><%=l order.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
