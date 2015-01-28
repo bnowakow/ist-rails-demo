@@ -21,6 +21,10 @@ rails server
 rails generate scaffold User name:string email:string
 rails server
 rake db:migrate
-rails server
-
 db/schema.rb
+
+rails server
+open http://localhost:3000/users
+open http://localhost:3000/users/1.html
+open http://localhost:3000/users/1.json
+change default format to json
