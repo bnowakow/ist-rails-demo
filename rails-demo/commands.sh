@@ -29,10 +29,38 @@ open http://localhost:3000/users/1.html
 open http://localhost:3000/users/1.json
 change default format to json
 
-add validators to user
+add validators to user /\A[^@]+@([^@\.]+\.)+[^@\.]+\z/
 
-rails g bootstrap:install
+rails g bootstrap:install less
 rails g bootstrap:layout application fixed
 rails g bootstrap:themed Users -f
 
 rails g scaffold Order id:string user:references
+rails g bootstrap:themed Orders -f
+
+rails g migration AddTrackingNumberToOrders tracking_number:string
+rails g bootstrap:themed Orders -f
+
+rails console
+Order.find_by_tracking_number(123)
+Order.joins(:user)
+Order.joins(:user).first.user
+Order.joins(:user).where('users.name = "Testowy"')
+
+user = User.new(email:'a@a.pl', name: 'Pan z konsoli')
+user.save
+user.update_attribute(:email, "b@b.pl")
+user[:email] = 'c@c.pl'
+user.save
+console on exception page
+lazy loading: includes vs joins
+
+heroku apps:create ist-rails-demo --region eu
+bundle install --without production
+bundle install
+rake assets:precompile
+git push heroku
+heroku run rake db:migrate --app ist-rails-demo
+heroku run:detached rake db:migrate --app ist-rails-demo
+open https://ist-rails-demo.herokuapp.com/users
+heroku logs -t --app ist-rails-demo
