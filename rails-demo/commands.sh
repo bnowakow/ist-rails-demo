@@ -14,3 +14,13 @@ https://rubygems.org/gems/rails
 
 gem install --version '4.2.0' railties
 rails _4.2.0_ new rails-demo
+
+bundle install
+rails server
+
+rails generate scaffold User name:string email:string
+rails server
+rake db:migrate
+rails server
+
+db/schema.rb
